@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" type = "text/css" href = "styles.css">
+</head>
+<body>
+    <div>
+        <h1 id="header">Welcome to your new Blogging APP </h1>
+    </div>
+    <div class="blog-form">
+        <h2>Create a blog post here</h2>
+         <form id="blogform">
+             <label> Title </label>
+             <input type="text" name="title" id="blog-title">
+             <label> Author </label>
+             <input type="text" name="author" id="blog-author">
+             <label> Content </label>
+             <textarea cols="25" name="mytextbox" rows="8" id="blog-content"></textarea>
+             <input type="submit" value="New Blog" id="blog-submit">
+         </form>
+    </div>
+
+    <div id="container">
+        <h1>
+            Below is a List of all your posts 
+        </h1>
+        <ul id="post-area"> </ul>
+    </div>
+    
+</body>
+    <script src="./index.js"> </script>
+</html>

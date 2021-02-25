@@ -1,0 +1,11 @@
+#blogform{
+    display: inline-grid; 
+}
+
+.blog-posts{
+    border: black solid
+}
+
+ul {
+    list-style-type: none;
+}
