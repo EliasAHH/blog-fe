@@ -3,6 +3,10 @@ const form = document.getElementById("blogform")
 form.addEventListener("submit", handleSubmit)
 const container = document.getElementById("container")
 const ul = document.getElementById("post-area")
+const sortButton = document.getElementById("sort");
+sortButton.addEventListener("click", handleSort);
+const searchButton = document.getElementById("searchButton");
+searchButton.addEventListener("click", handleSearch);
 
 document.addEventListener("DOMContentLoaded", init)
 
@@ -49,5 +53,53 @@ function getAllPosts() {
             })
         })
 }
+
+
+function handleSort(e) {    
+    // in this function I have to sort and display the sorted information.
+    let posts = Post.all.slice();
+    let sortedArray = posts.sort(function (a, b) {
+        
+        let nameA = a.title.toUpperCase(); // ignore upper and lowercase
+        let nameB = b.title.toUpperCase(); // ignore upper and lowercase
+
+
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+      
+        // names must be equal
+        return 0;
+    });
+    // setting innerHTML to "" will clear out the whole tag it self and the contents that are inside of it 
+    ul.innerHTML = ""
+    
+    // allows us to use the sorted Array and for each one post it onto the dom
+    sortedArray.forEach(p => {
+        p.putPostOnDom();
+    })
+
+}
+
+
+function handleSearch(e) {
+    // let inputValue = e.target.previousElementSibling.value;
+    let inputValue = document.getElementById("search").value;
+    let filterdArray = Post.all.filter(p => {
+        return p.authorName.toLowerCase() === inputValue.toLowerCase()
+    })
+
+    ul.innerHTML = ""
+    
+    // allows us to use the sorted Array and for each one post it onto the dom
+    filterdArray.forEach(p => {
+        p.putPostOnDom();
+    })
+
+}
+
 
 
